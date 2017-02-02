@@ -50,7 +50,6 @@ class Kitten {
   static fetch(){
     $.get('/kittens', (data)=>{
       Kitten._all = data;
-      // Kitten._all.forEach(function(kitty){
       //   kitty = {kitten: kitty}
       // })
     })
@@ -69,6 +68,17 @@ class Kitten {
   static last(){
     var lastKitten = Kitten.all();
     console.log(lastKitten[lastKitten.length-1]);
+  }
+
+  static meow(){
+    let chorus = "";
+    for(var kittyIdx in Kitten._all){
+      chorus += `${Kitten._all[kittyIdx].name} says 'meow'; `;
+
+      // WHY CAN'T I INVOKE .MEOW() AS WRITTEN BELOW??
+      // Kitten._all[kittyIdx].meow();
+    }
+    console.log(chorus);
   }
 
 }
